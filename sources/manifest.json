@@ -1,0 +1,42 @@
+{
+    "name": "KeepScan Extension",
+    "version": "1.0",
+    "offline_enabled": true,
+    "manifest_version": 2,
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "background",
+        "<all_urls>",
+        "storage"
+    ],
+    "background": {
+        "scripts": ["worker.js"],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_popup": "index.html",
+        "default_icon": {
+            "16": "images/keep-logo-16.png",
+            "32": "images/keep-logo-32.png",
+            "48": "images/keep-logo-48.png",
+            "128": "images/keep-logo-128.png"
+        }
+    },
+    "icons": {
+        "16": "images/keep-logo-16.png",
+        "32": "images/keep-logo-32.png",
+        "48": "images/keep-logo-48.png",
+        "128": "images/keep-logo-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://dapp.test.tbtc.network/*", "*://dapp.tbtc.network/*"],
+            "js": ["content.js"],
+            "run_at": "document_idle",
+            "all_frames": false
+        }
+    ],
+
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

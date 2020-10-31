@@ -1,0 +1,10 @@
+node_modules
+bundle
+config/webpack.local.js
+
+npm-debug.log*
+.idea
+
+*.zip
+*.crx
+*.pem
