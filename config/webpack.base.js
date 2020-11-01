@@ -25,7 +25,7 @@ module.exports = (options) => {
     output: {
       path: paths.bundle,
       publicPath: "/",
-      filename: isDevelopment ? "[name].js" : "[name]-[hash].js",
+      filename: "[name].js" ,
     },
     module: {
       rules: [
@@ -43,9 +43,7 @@ module.exports = (options) => {
               options: {
                 url: false,
                 modules: {
-                  localIdentName: isDevelopment
-                    ? "[name]__[local]_[hash:base64:5]"
-                    : "[hash:base64:12]",
+                  localIdentName: "[name]__[local]_[hash:base64:5]",
                 },
               },
             },
